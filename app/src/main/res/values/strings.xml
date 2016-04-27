@@ -2,5 +2,6 @@
     <string name="app_name">MyStudy</string>
     <string name="back">Back</string>
     <string name="forward">Forward</string>
+    <string name="testlog">Test logcat level</string>
     <string name="info_activity_his">"Activity stack demo. Use \"adb shell dumpsys activity\" to observe on console</string>
 </resources>

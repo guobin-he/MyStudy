@@ -59,4 +59,15 @@
             android:layout_gravity="center"
             android:text="@string/forward"/>
     </LinearLayout>
+
+    <View style="@style/Divider"/>
+
+    <Button
+        android:id="@+id/activity_main_button_testlog"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/testlog"/>
+
 </LinearLayout>

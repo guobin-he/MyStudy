@@ -4,6 +4,7 @@
  * 3) Start an Activity with extra parameters and receive result from it
  * 4) Return back result to the activity that started this activity
  * 5) Learn getIntent of an Activity
+ * 6) Add testLog() to learn how Log.isLoggable() works
  */
 package com.ghe.mystudy;
 
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setResult(RESULT_OK, data);
             finish();
         }
+        if (v!=null && v.getId()==R.id.activity_main_button_testlog) {
+            testLog();
+        }
     }
 
     @Override
@@ -80,12 +84,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         Button btnForward = (Button)findViewById(R.id.activity_main_button_forward);
-        assert btnForward != null;
         btnForward.setOnClickListener(this);
 
         Button btnBack = (Button)findViewById(R.id.activity_main_button_back);
-        assert btnBack != null;
         btnBack.setOnClickListener(this);
+
+        Button btnTestlog = (Button)findViewById(R.id.activity_main_button_testlog);
+        btnTestlog.setOnClickListener(this);
 
         Intent intent = getIntent();
         if(Intent.ACTION_MAIN.equals(intent.getAction()) &&
@@ -100,4 +105,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text = "My:" + mMyNumber + "    " + "Caller:" + mCallerNumber;
         ((TextView) findViewById(R.id.activity_main_text_edit)).setText(text);
     }
+
+    private void testLog() {
+        Log.v(Constants.TAG, "log.v");
+        Log.d(Constants.TAG, "log.d");
+        Log.i(Constants.TAG, "log.i");
+        Log.w(Constants.TAG, "log.w");
+        Log.e(Constants.TAG, "log.e");
+        if(Log.isLoggable(Constants.TAG, Log.VERBOSE)) {
+            Log.v(Constants.TAG, "is loggable v");
+        }
+        if(Log.isLoggable(Constants.TAG, Log.DEBUG)) {
+            Log.d(Constants.TAG, "is loggable d");
+        }
+        if(Log.isLoggable(Constants.TAG, Log.INFO)) {
+            Log.i(Constants.TAG, "is loggable i");
+        }
+        if(Log.isLoggable(Constants.TAG, Log.WARN)) {
+            Log.w(Constants.TAG, "is loggable w");
+        }
+        if(Log.isLoggable(Constants.TAG, Log.ERROR)) {
+            Log.e(Constants.TAG, "is loggable e");
+        }
+    }
+
 }
